@@ -57,4 +57,4 @@ W = DFS (D, x, visited)
 if y in W:
     print (f"Istnieje sciezka miedzy {x} i {y}")
 else:
-    print (f"nie istnieje sciezki miedzy {x} i {y}")
+    print (f"Nie istnieje sciezki miedzy {x} i {y}")
