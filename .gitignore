@@ -1,13 +1,55 @@
 D = {}
 
-m = 5
-for i in range (m):
+n, m = map (int, input().split ())
+
+for i in range(n):
     D[i + 1] = []
-print (D)
+    # D.update({ i+1 : [] })
 
-for i in range (m):
-    p, q = map (int, input().split ())
-    D[p].append (q)
-    D[q].append (p)
+for _ in range(m):
+    p, q = map(int, input().split())
+    D[p].append(q)
+    D[q].append(p)
+print(D)
 
-print (D)
+for i in range(1, n + 1):
+    if len(D[i]) == 0:
+        print("Wiewiór sam")
+    else:
+        D[i].sort()
+        for j in range (len (D[i])):
+            print(D[i][j], end=" ")
+        print ()
+
+sum = 0
+for i in range (1, n + 1):
+    sum += len (D[i])
+
+# policz sumę stopni wierzechołków grafu
+print (f"suma wierzcholkow grafu: {sum}")
+
+# znajdź wierzchołek o najwyższym stopniu
+max = 0
+wierzcholek = 0
+for i in range (1, n + 1):
+    if (max < len (D[i])):
+        max = len (D[i])
+        wierzcholek = i
+print (f"wierzcholek o najwyzszym stopniu: {wierzcholek}")
+
+# znajdź wierzchołki samodzielne
+print ("Wierzcholki samodzielne: ", end = "")
+for i in range (1, n + 1):
+    if (len(D[i]) == 0):
+        print (i, end = " ")
+print ()
+# Sprawdź czy uda się dojść z wierzchołka x do y
+sprawdzone = set ()
+def dfs(sprawdzone, D, wierzcholek):
+    if wierzcholek not in sprawdzone:
+        print (wierzcholek)
+        sprawdzone.add(wierzcholek)
+        for sasiad in D[wierzcholek]:
+            dfs(sprawdzone, D, sasiad)
+
+dfs(sprawdzone, D, 1)
