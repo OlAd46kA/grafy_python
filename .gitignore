@@ -44,15 +44,14 @@ for i in range (1, n + 1):
         print (i, end = " ")
 print ()
 # Sprawdź czy uda się dojść z wierzchołka x do y
-def DFS(D, node, visited = None):
-    if visited is None:
-        visited = set ()
-    if node not in visited:
-        visited.add(node)
-        for neighbour in D[wierzcholek]:
-            DFS(D, neighbour, visited)
+
+def DFS (D, node, visited):
+    visited.add (node)
+    for neighbor in D[node]:
+        if neighbor not in visited:
+            DFS (D, neighbor, visited)
     return visited
 
-print ("Wierzcholki odwiedzone: ", end="")
-W = DFS (D, 1)
+visited = set()
+W = DFS (D, 1, visited)
 print (W)
