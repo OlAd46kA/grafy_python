@@ -54,4 +54,5 @@ def DFS (D, node, visited):
 
 visited = set()
 W = DFS (D, 1, visited)
+print ("Wierzcholki odwiedzone: ", end="")
 print (W)
