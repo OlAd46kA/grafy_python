@@ -47,9 +47,10 @@ print ()
 sprawdzone = set ()
 def dfs(sprawdzone, D, wierzcholek):
     if wierzcholek not in sprawdzone:
-        print (wierzcholek)
+        print (wierzcholek, end = " ")
         sprawdzone.add(wierzcholek)
         for sasiad in D[wierzcholek]:
             dfs(sprawdzone, D, sasiad)
 
+print ("Wierzcholki odwiedzone: ", end="")
 dfs(sprawdzone, D, 1)
