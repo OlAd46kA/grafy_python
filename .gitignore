@@ -50,7 +50,7 @@ def DFS(D, node, visited = None):
     if node not in visited:
         visited.add(node)
         for neighbour in D[wierzcholek]:
-            DFS( D, neighbour, visited)
+            DFS(D, neighbour, visited)
     return visited
 
 print ("Wierzcholki odwiedzone: ", end="")
